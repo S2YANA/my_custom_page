@@ -12,7 +12,10 @@ function showTab(tab) {
 let wordChain = [];
 const botWords = ['기차', '차표', '표지', '지갑', '갑옷', '옷걸이', '이불', '불꽃', '꽃병', '병아리', '리본', '본드', '드라마', '마음', '음료', '요리', '리더', '더미', '미소', '소나기', '기린', '린넨', '넨도', '도장', '장미', '미역', '역사', '사과', '과자', '자동차', '차도', '도토리', '리모컨', '컨디션', '션트', '트럭', '크레파스', '스키', '키위', '위성', '성냥', '양말', '말풍선', '선풍기'];
 
-function submitWord() {
+function submitWord(e) {
+  if (e && e.type === 'keydown' && e.key === 'Enter') {
+    e.preventDefault();
+  }
   const input = document.getElementById('word-input');
   const word = input.value.trim();
   if (!word) return;
@@ -38,6 +41,8 @@ function botWord() {
     document.getElementById('word-chain').innerText = wordChain.join(' → ');
   } else {
     document.getElementById('word-chain').innerText += '\n웹사이트가 더 이상 이어갈 단어를 찾지 못했습니다!';
+    document.getElementById('giveup-btn').style.display = 'none';
+    document.getElementById('word-input').disabled = true;
   }
 }
 function retryGame() {
@@ -46,6 +51,7 @@ function retryGame() {
   document.getElementById('giveup-msg').innerText = '';
   document.getElementById('retry-btn').style.display = 'none';
   document.getElementById('giveup-btn').style.display = 'none';
+  document.getElementById('word-input').disabled = false;
 }
 function giveUpGame() {
   document.getElementById('giveup-msg').innerText = '사이트가 이겼습니다! 다시 도전해보세요!';
