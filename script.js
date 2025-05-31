@@ -1,3 +1,13 @@
+// 탭 기능
+function showTab(tab) {
+  const tabs = ['game', 'cafe', 'emoji'];
+  tabs.forEach(t => {
+    document.getElementById(`${t}-section`).style.display = (t === tab) ? '' : 'none';
+    const btn = document.querySelector(`.tab-btn:nth-child(${tabs.indexOf(t)+1})`);
+    if (btn) btn.classList.toggle('active', t === tab);
+  });
+}
+
 // 끝말잇기 기능
 let wordChain = [];
 const botWords = ['기차', '차표', '표지', '지갑', '갑옷', '옷걸이', '이불', '불꽃', '꽃병', '병아리', '리본', '본드', '드라마', '마음', '음료', '요리', '리더', '더미', '미소', '소나기', '기린', '린넨', '넨도', '도장', '장미', '미역', '역사', '사과', '과자', '자동차', '차도', '도토리', '리모컨', '컨디션', '션트', '트럭', '크레파스', '스키', '키위', '위성', '성냥', '양말', '말풍선', '선풍기'];
