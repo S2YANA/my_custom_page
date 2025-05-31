@@ -15,8 +15,10 @@
   </div>
   <section id="game-section" class="tab-content">
     <h2>끝말잇기</h2>
-    <input type="text" id="word-input" placeholder="단어 입력" onkeydown="if(event.key==='Enter'){submitWord(event);}">
-    <button onclick="submitWord()">제출</button>
+    <form id="word-form" onsubmit="submitWord(event);return false;">
+      <input type="text" id="word-input" placeholder="단어 입력">
+      <button type="submit">제출</button>
+    </form>
     <button id="retry-btn" onclick="retryGame()" style="display:none;">Retry</button>
     <button id="giveup-btn" onclick="giveUpGame()" style="display:none;">포기</button>
     <div id="word-chain"></div>
