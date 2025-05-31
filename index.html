@@ -15,7 +15,7 @@
   </div>
   <section id="game-section" class="tab-content">
     <h2>끝말잇기</h2>
-    <input type="text" id="word-input" placeholder="단어 입력">
+    <input type="text" id="word-input" placeholder="단어 입력" onkeydown="if(event.key==='Enter'){submitWord();}">
     <button onclick="submitWord()">제출</button>
     <div id="word-chain"></div>
   </section>
