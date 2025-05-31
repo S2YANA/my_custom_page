@@ -15,12 +15,12 @@
   </div>
   <section id="game-section" class="tab-content">
     <h2>끝말잇기</h2>
-    <form id="word-form" onsubmit="submitWord(event);return false;">
-      <input type="text" id="word-input" placeholder="단어 입력">
+    <form id="word-form" onsubmit="submitWord(event);return false;" style="display:flex;gap:8px;align-items:center;">
+      <input type="text" id="word-input" placeholder="단어 입력" style="flex:1;">
       <button type="submit">제출</button>
+      <button id="retry-btn" type="button" onclick="retryGame()" style="display:none;">Retry</button>
+      <button id="giveup-btn" type="button" onclick="giveUpGame()" style="display:none;">포기</button>
     </form>
-    <button id="retry-btn" onclick="retryGame()" style="display:none;">Retry</button>
-    <button id="giveup-btn" onclick="giveUpGame()" style="display:none;">포기</button>
     <div id="word-chain"></div>
     <div id="giveup-msg" style="color:#d00;margin-top:10px;"></div>
   </section>
