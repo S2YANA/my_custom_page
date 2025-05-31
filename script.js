@@ -48,6 +48,7 @@ function botWord() {
     document.getElementById('word-chain').innerText += '\n웹사이트가 더 이상 이어갈 단어를 찾지 못했습니다!';
     document.getElementById('giveup-btn').style.display = 'none';
     document.getElementById('word-input').disabled = true;
+    document.getElementById('word-input').placeholder = '사용자 승리!';
   }
 }
 function retryGame() {
@@ -57,10 +58,12 @@ function retryGame() {
   document.getElementById('retry-btn').style.display = 'none';
   document.getElementById('giveup-btn').style.display = 'none';
   document.getElementById('word-input').disabled = false;
+  document.getElementById('word-input').placeholder = '단어 입력';
 }
 function giveUpGame() {
   document.getElementById('giveup-msg').innerText = '사이트가 이겼습니다! 다시 도전해보세요!';
   document.getElementById('giveup-btn').style.display = 'none';
+  document.getElementById('word-input').placeholder = '사이트 승리!';
 }
 
 // 카페 메뉴 추천 기능
