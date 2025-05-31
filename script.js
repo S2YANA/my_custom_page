@@ -11,14 +11,18 @@ function showTab(tab) {
 // 끝말잇기 기능
 let wordChain = [];
 const botWords = ['기차', '차표', '표지', '지갑', '갑옷', '옷걸이', '이불', '불꽃', '꽃병', '병아리', '리본', '본드', '드라마', '마음', '음료', '요리', '리더', '더미', '미소', '소나기', '기린', '린넨', '넨도', '도장', '장미', '미역', '역사', '사과', '과자', '자동차', '차도', '도토리', '리모컨', '컨디션', '션트', '트럭', '크레파스', '스키', '키위', '위성', '성냥', '양말', '말풍선', '선풍기'];
+
 function submitWord() {
   const input = document.getElementById('word-input');
   const word = input.value.trim();
   if (!word) return;
+  if (document.getElementById('giveup-msg').innerText) return;
   if (wordChain.length === 0 || wordChain[wordChain.length-1].slice(-1) === word[0]) {
     wordChain.push(word);
     document.getElementById('word-chain').innerText = wordChain.join(' → ');
     input.value = '';
+    document.getElementById('retry-btn').style.display = '';
+    document.getElementById('giveup-btn').style.display = '';
     setTimeout(botWord, 700); // 웹사이트가 이어서 말함
   } else {
     alert('올바른 끝말잇기가 아닙니다!');
@@ -35,6 +39,17 @@ function botWord() {
   } else {
     document.getElementById('word-chain').innerText += '\n웹사이트가 더 이상 이어갈 단어를 찾지 못했습니다!';
   }
+}
+function retryGame() {
+  wordChain = [];
+  document.getElementById('word-chain').innerText = '';
+  document.getElementById('giveup-msg').innerText = '';
+  document.getElementById('retry-btn').style.display = 'none';
+  document.getElementById('giveup-btn').style.display = 'none';
+}
+function giveUpGame() {
+  document.getElementById('giveup-msg').innerText = '사이트가 이겼습니다! 다시 도전해보세요!';
+  document.getElementById('giveup-btn').style.display = 'none';
 }
 
 // 카페 메뉴 추천 기능
