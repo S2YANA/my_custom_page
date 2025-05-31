@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Custom Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>My Custom Page</h1>
+  <section id="game-section">
+    <h2>끝말잇기</h2>
+    <input type="text" id="word-input" placeholder="단어 입력">
+    <button onclick="submitWord()">제출</button>
+    <div id="word-chain"></div>
+  </section>
+  <section id="cafe-section">
+    <h2>카페 메뉴 추천</h2>
+    <button onclick="recommendMenu()">추천 받기</button>
+    <div id="menu-result"></div>
+  </section>
+  <section id="emoji-section">
+    <h2>랜덤 이모지 추출</h2>
+    <button onclick="randomEmoji()">이모지 뽑기</button>
+    <div id="emoji-result"></div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
